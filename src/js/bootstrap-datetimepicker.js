@@ -47,7 +47,11 @@ THE SOFTWARE.
             alert("momentjs is requried");
             throw new Error('momentjs is required');
         }
-
+        if (!localizedText || typeof localizedText === 'undefined') {
+            localizedText = {
+                "clearTitle": "Clear Date"
+            };
+        }
         var dpgId = 0,
 
             pMoment = moment,
@@ -105,7 +109,7 @@ THE SOFTWARE.
                         picker.id = dpgId++;
                         pMoment.lang(picker.options.language);
                         picker.date = pMoment();
-                        if(!picker.options.setCurrentTime){
+                        if (!picker.options.setCurrentTime) {
                             picker.date.second(0);
                             picker.date.minute(0);
                             picker.date.hour(0);
